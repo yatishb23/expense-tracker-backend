@@ -9,6 +9,12 @@ app.use(express.json());
 
 const PORT = 4000;
 
+app.get("/", (req, res) => {
+  return res.json({
+    msg: "Hello world"
+  });
+})
+
 app.post("/user", async (req, res) => {
   const createPayload = req.body;
 
@@ -90,3 +96,5 @@ app.post("/expenses", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;
