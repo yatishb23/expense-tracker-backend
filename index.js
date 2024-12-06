@@ -5,8 +5,12 @@ const createUser = require("./middleware/createUser");
 const app = express();
 
 app.use(cors({
-  origin: ["https://expense-tracker-yb.vercel.app/"],
+  origin: 'https://expense-tracker-yb.vercel.app', // Frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'], // Include required headers
+  credentials: true,
 }));
+
 app.use(express.json());
 
 const PORT = 4000;
